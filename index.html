@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste React</title>
+</head>
+
+<body>
+    <!-- Normal way to add heading in root div-->
+    <!-- <div id="root">
+        <h1>Hello World!</h1>
+    </div> -->
+
+    <!-- Another way to add heading in root div -->
+    <!-- <script>
+        const heading = document.createElement('h1');
+        heading.innerHTML = "Namaste JavaScript";
+        const root = document.getElementById('root');
+        root.appendChild(heading);
+    </script> -->
+    
+    <!-- Adding heading in root div using react -->
+    <div id="root"></div>
+
+    <!-- Importing react using CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Writing first react code -->
+    <script>
+        const heading = React.createElement('h1',{},"Hello World from React!");
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(heading);
+    </script>
+</body>
+
+</html>
