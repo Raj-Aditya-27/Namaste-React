@@ -39,7 +39,7 @@ root.render(parent);
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React.createElement => object  =>HTMLelement(render)
+//React.createElement => JS-object  =>HTMLelement(render)
 //This is a core way of react to create things but it is not easy as compare to normal html,so let's use JSX
 
 const heading = React.createElement(
@@ -51,5 +51,41 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 
 //JSX is a html-like syntax not a html and JSX , react are two different things.
-const jsxHeading = <h1 id="heading">Namaste React from JSX 🚀</h1>
-root.render(jsxHeading);
+//JSX(transpiled before it reaches to JS-engine)-Parcel(prime minister)-babel(home minister)(convert jsx into reactElement)
+//JSX => Babel transpile it to  React.createElement => JS-object  =>HTMLelement(render)
+const jsxHeading = <h1 id="heading">Namaste React from JSX 🚀</h1>;
+// root.render(jsxHeading);
+
+//React component->eg. button,div,etc;
+//functional based component: New
+//class based component: old
+
+//functional component->A javascript funtion which returns jsx or react Element
+const HeadingComponent = () =>{
+  return <h1>Namaste React functional component 1st way</h1>
+};
+
+const HeadingComponent2 = () => <h1>Hello 2nd way</h1>;
+
+//() used for multiple lines jsx
+const HeadingComponent3 = () =>(<h1>Namaste React functional component 3rd way</h1>);
+;
+
+//react component should always be pass like this <react component/>
+// root.render(<HeadingComponent3/>);
+
+//component composition: Using nested components
+// () used for multiple lines jsx
+const HeadingComponent4 = () =>(
+  <div id="container">
+    <HeadingComponent/>
+    <HeadingComponent2></HeadingComponent2>
+    {/* {any javascript code can be used between these two curly braces} */}
+    {1000+5}
+    {HeadingComponent3()}
+    <h1>Composition Component</h1>
+  </div>
+);
+
+root.render(<HeadingComponent4/>);
+
