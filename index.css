@@ -1,3 +1,74 @@
-#heading {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo > img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.NavLinks > ul {
+  list-style: none;
+  display: flex;
+  width: 40vw;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: Roboto;
+  transition: color 0.1s ease;
+}
+
+.NavLinks > ul > li:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.restaurant-card {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+}
+
+.restaurant-card h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  row-gap: 2vh;
+  background-color: rgba(245, 245, 245, 0.806);
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 3vw;
+  row-gap: 2vh;
+  padding: 2vh;
 }
