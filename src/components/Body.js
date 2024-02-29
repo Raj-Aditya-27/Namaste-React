@@ -30,6 +30,7 @@ const Body = () => {
   };
 
   //This is used for page loading time and render time
+  //conditional rendering
   if (ListRestaurant.length === 0) {
     // return <h1>Loading...</h1>
     return (
@@ -47,7 +48,7 @@ const Body = () => {
           className="filter-button"
           onClick={() => {
             let filteredList = ListRestaurant.filter(
-              (res) => res.info.avgRating > 4.5
+              (res) => res.info.avgRating > 4
             );
             console.log(filteredList);
             setListRestaurant(filteredList);

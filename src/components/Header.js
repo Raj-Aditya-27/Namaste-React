@@ -1,6 +1,9 @@
 import { LOGO_URL } from "../utilities/constants";
+import { useState } from "../../node_modules/react";
 
 const Header = () => {
+  // Used btnName useState to toggle login and logout 
+  let [btnName, setbtnName] = useState("Login");
   return (
     <div className="NavBar">
       <div className="logo">
@@ -13,6 +16,13 @@ const Header = () => {
           <li>Food</li>
           <li>Offers</li>
         </ul>
+        <button
+          onClick={() => {
+            btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
+          }}
+        >
+          {btnName}
+        </button>
       </div>
     </div>
   );
