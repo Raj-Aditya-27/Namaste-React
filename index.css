@@ -72,3 +72,39 @@
   row-gap: 2vh;
   padding: 2vh;
 }
+
+.shimmer-card {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 10px;
+  height: 454px;
+}
+
+.shimmer-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  row-gap: 2vh;
+  background-color: rgba(245, 245, 245, 0.806);
+}
+
+.shimmer-container button {
+  width: 150px;
+  height: 22px;
+}
+
+.shimmerCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  row-gap: 2vh;
+  background-color: rgba(245, 245, 245, 0.806);
+}
