@@ -9,6 +9,8 @@ const Body = () => {
   //[array,updateArray]=useState(default Value)
   // let [ListRestaurant, setListRestaurant] = useState(resObj);
   let [ListRestaurant, setListRestaurant] = useState([]);
+  let [filterdRestaurant, setfilteredRestaurant] = useState([]);
+  let [searchText, setsearchText] = useState("");
 
   //useEffect work after page load->render then it is call
   useEffect(() => {
@@ -17,6 +19,9 @@ const Body = () => {
   }, []);
 
   // console.log("After useEffect");->This executes before useEffect
+
+  //Whenever state variables update then react triggers reconcilation recycle(re-renders component)
+  console.log("Body Rendered");
 
   const fetchData = async () => {
     const data = await fetch(
@@ -27,7 +32,11 @@ const Body = () => {
     setListRestaurant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setfilteredRestaurant(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
+  console.log(ListRestaurant);
 
   //This is used for page loading time and render time
   //conditional rendering
@@ -44,6 +53,31 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            // value binds with useState
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+          ></input>
+        </div>
+        <button
+          className="search-button"
+          onClick={() => {
+            console.log(searchText);
+            let filteredData = ListRestaurant.filter((res) => {
+              return res?.info?.name
+                .toLowerCase()
+                ?.includes(searchText.toLowerCase());
+            });
+            setfilteredRestaurant(filteredData);
+            console.log(filteredData);
+          }}
+        >
+          Search
+        </button>
         <button
           className="filter-button"
           onClick={() => {
@@ -51,14 +85,14 @@ const Body = () => {
               (res) => res.info.avgRating > 4
             );
             console.log(filteredList);
-            setListRestaurant(filteredList);
+            setfilteredRestaurant(filteredList);
           }}
         >
           Top Rated Restaurant
         </button>
       </div>
       <div className="restaurant-container">
-        {ListRestaurant.map((restaurant) => (
+        {filterdRestaurant.map((restaurant) => (
           // key is used to make a card unique and shouldn't re-render
           <RestaurantCard key={restaurant.info.id} resName={restaurant} />
         ))}
