@@ -13,9 +13,12 @@ const Body = () => {
   let [searchText, setsearchText] = useState("");
 
   //useEffect work after page load->render then it is call
+  //If no dependency array => useEffect is called on every render
+  //If dependency array is empty => useEffect will call only once
+  //If dependency array have some component => useEffect will call on updation of that component only
   useEffect(() => {
     fetchData();
-    // console.log("Use effect");->This executes after below console.log statement
+    console.log("Use effect");//->This executes after below console.log statement
   }, []);
 
   // console.log("After useEffect");->This executes before useEffect
