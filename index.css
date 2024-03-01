@@ -44,11 +44,13 @@
   font-family: Roboto;
 }
 
-.NavLinks > ul > li {
+.NavLinks > ul > li .Link{
+  color: black;
+  text-decoration: none;
   transition: color 0.4s ease;
 }
 
-.NavLinks > ul > li:hover {
+.NavLinks > ul > li .Link:hover {
   color: orange;
   cursor: pointer;
 }

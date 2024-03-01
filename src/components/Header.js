@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utilities/constants";
 import { useState } from "../../node_modules/react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // Used btnName useState to toggle login and logout 
@@ -11,10 +12,9 @@ const Header = () => {
       </div>
       <div className="NavLinks">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Food</li>
-          <li>Offers</li>
+          <li><Link to={"/"} className="Link">Home</Link></li>
+          <li><Link to={"/about"} className="Link">About</Link></li>
+          <li><Link to={"/contact"} className="Link">Contact</Link></li>
         </ul>
         <button
           onClick={() => {
