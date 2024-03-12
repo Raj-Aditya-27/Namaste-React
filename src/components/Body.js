@@ -2,6 +2,7 @@ import { resObj } from "../utilities/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utilities/useOnlineStatus";
 
 const Body = () => {
   //React hook -> It's a utility function
@@ -11,6 +12,7 @@ const Body = () => {
   let [ListRestaurant, setListRestaurant] = useState([]);
   let [filterdRestaurant, setfilteredRestaurant] = useState([]);
   let [searchText, setsearchText] = useState("");
+  const onlineStatus=useOnlineStatus();
 
   //useEffect work after page load->render then it is call
   //If no dependency array => useEffect is called on every render
@@ -52,6 +54,8 @@ const Body = () => {
       </div>
     );
   }
+
+  if(onlineStatus==false) return <h1>You are offline!!</h1>
 
   return (
     <div className="body">
