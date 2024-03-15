@@ -58,9 +58,9 @@ const Body = () => {
   if(onlineStatus==false) return <h1>You are offline!!</h1>
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="p-4 m-4">
+      <div className="flex items-center">
+        <div className="border-2 rounded-md">
           <input
             type="text"
             // value binds with useState
@@ -71,7 +71,7 @@ const Body = () => {
           ></input>
         </div>
         <button
-          className="search-button"
+          className="bg-blue-100 rounded-md mx-2 px-2"
           onClick={() => {
             console.log(searchText);
             let filteredData = ListRestaurant.filter((res) => {
@@ -86,7 +86,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="filter-button"
+           className="bg-blue-100 rounded-md mx-2 px-2"
           onClick={() => {
             let filteredList = ListRestaurant.filter(
               (res) => res.info.avgRating > 4
@@ -98,7 +98,7 @@ const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="restaurant-container">
+      <div className="flex py-4 flex-wrap justify-between">
         {filterdRestaurant.map((restaurant) => (
           // key is used to make a card unique and shouldn't re-render
           <RestaurantCard key={restaurant.info.id} resName={restaurant} />
